@@ -4,6 +4,7 @@ import RadioButtonHiddenInput from './styles/RadioButtonHiddenInput';
 import RadioButtonStyledInput from './styles/RadioButtonStyledInput';
 
 export interface RadioButtonInputProps {
+  name?: string;
   disabled?: boolean;
   ariaLabel?: string;
   id?: string;
@@ -12,11 +13,12 @@ export interface RadioButtonInputProps {
 }
 
 const RadioButtonInput = forwardRef<HTMLInputElement, RadioButtonInputProps>(
-  ({ disabled, ariaLabel, id, ...inputProps }, ref) => (
+  ({ disabled, ariaLabel, id, name, ...inputProps }, ref) => (
     <>
       <RadioButtonHiddenInput
         id={id}
         key={id}
+        name={name}
         disabled={disabled}
         aria-label={ariaLabel}
         ref={ref}
